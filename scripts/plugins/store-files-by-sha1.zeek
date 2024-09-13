@@ -15,9 +15,9 @@ event file_state_remove(f: fa_file)
 	local dest = fmt("%s%s-%s.%s", FileExtraction::path, f$source, f$info$sha1, extension);
 
 	local cmd = fmt("mv %s %s", orig, dest);
-	when ( local result = Exec::run([$cmd=cmd]) )
+	when [cmd] ( local result = Exec::run([$cmd=cmd]) )
 		{
-		}		
+		}
 	f$info$extracted = dest;
 
 	}
